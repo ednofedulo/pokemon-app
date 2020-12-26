@@ -8,7 +8,7 @@
 import UIKit
 import Kingfisher
 class PokemonTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var coloredBackgroundVIew: UIView!
     @IBOutlet weak var orderLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
@@ -18,9 +18,8 @@ class PokemonTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
-        
     }
-        
+    
     func setup(pokemon: PokemonModel){
         nameLabel.text = pokemon.name
         orderLabel.text = "#\(String(format: "%04d", pokemon.id ?? 0))"
@@ -42,6 +41,19 @@ class PokemonTableViewCell: UITableViewCell {
                 self.typesStackView.addArrangedSubview(badge)
             }
         }
+        
+        setupShadow()
+    }
+    
+    private func setupShadow(){
+        
+        self.coloredBackgroundVIew.layer.shadowColor = self.coloredBackgroundVIew.backgroundColor?.cgColor
+        self.coloredBackgroundVIew.layer.shadowOpacity = 0.7
+        self.coloredBackgroundVIew.layer.shadowOffset = CGSize(width: 0, height: 5)
+        self.coloredBackgroundVIew.layer.shadowRadius = 4
+        self.coloredBackgroundVIew.layer.shouldRasterize = true
+        self.coloredBackgroundVIew.layer.rasterizationScale = UIScreen.main.scale
+        
     }
     
 }

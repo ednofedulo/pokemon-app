@@ -193,6 +193,15 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		A51C17EE2597F7D2007CF359 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				A51C178525975ED1007CF359 /* Detail */,
+				A51C178425975ECB007CF359 /* Home */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
 		A58E7551259745C2009A2D76 = {
 			isa = PBXGroup;
 			children = (
@@ -223,8 +232,7 @@
 				A51C17D62597CAF4007CF359 /* Enum */,
 				A51C17A825976AEE007CF359 /* Model */,
 				A51C179F25976A4B007CF359 /* Service */,
-				A51C178525975ED1007CF359 /* Detail */,
-				A51C178425975ECB007CF359 /* Home */,
+				A51C17EE2597F7D2007CF359 /* Scenes */,
 				A58E755D259745C2009A2D76 /* AppDelegate.swift */,
 				A58E755F259745C2009A2D76 /* SceneDelegate.swift */,
 				A58E7566259745C3009A2D76 /* Assets.xcassets */,
