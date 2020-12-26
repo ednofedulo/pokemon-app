@@ -14,6 +14,23 @@ struct PokemonModel:Codable {
     let types:[TypeModel]?
     let stats:[StatModel]?
     let abilities:[AbilityModel]?
+    let sprites:SpriteOutterWrapper?
+}
+
+struct SpriteOutterWrapper:Codable{
+    let other:SpriteInnerWrapper?
+}
+
+struct SpriteInnerWrapper:Codable {
+    let official_artwork:SpriteModel?
+    
+    enum CodingKeys: String, CodingKey {
+            case official_artwork = "official-artwork"
+        }
+}
+
+struct SpriteModel:Codable {
+    let front_default:String?
 }
 
 struct AbilityModel:Codable {

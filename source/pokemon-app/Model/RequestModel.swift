@@ -7,9 +7,9 @@
 
 import Foundation
 
-struct RequestModel<T:Codable>:Codable {
+struct ResponseModel<T:Codable>:Codable {
     let count:Int?
     let next:String?
     let previous:String?
-    let results:T?
+    let results:[T]?
 }
