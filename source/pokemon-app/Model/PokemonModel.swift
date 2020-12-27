@@ -15,6 +15,14 @@ struct PokemonModel:Codable {
     let stats:[StatModel]?
     let abilities:[AbilityModel]?
     let sprites:SpriteOutterWrapper?
+    
+    func mainType() -> PokemonType? {
+        if let types = types, let mainType = types.first, let typeName = mainType.type?.name {
+            return PokemonType(rawValue: typeName)!
+        }
+        
+        return nil
+    }
 }
 
 struct SpriteOutterWrapper:Codable{

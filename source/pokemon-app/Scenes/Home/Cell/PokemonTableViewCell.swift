@@ -15,12 +15,16 @@ class PokemonTableViewCell: UITableViewCell {
     @IBOutlet weak var typesStackView: UIStackView!
     @IBOutlet weak var avatarImageView: UIImageView!
     
+    var pokemon:PokemonModel?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         self.selectionStyle = .none
     }
     
     func setup(pokemon: PokemonModel){
+        self.pokemon = pokemon
+        
         nameLabel.text = pokemon.name
         orderLabel.text = "#\(String(format: "%04d", pokemon.id ?? 0))"
         
@@ -32,7 +36,7 @@ class PokemonTableViewCell: UITableViewCell {
             self.typesStackView.arrangedSubviews.forEach{
                 $0.removeFromSuperview()
             }
-            let mainType = PokemonType(rawValue: types.first!.type!.name!)
+            let mainType = pokemon.mainType()
             self.coloredBackgroundVIew.backgroundColor = mainType?.backgroundColor()
             for type in types {
                 let badge = UIImageView(image: UIImage(named: "\(type.type!.name!)-badge"))

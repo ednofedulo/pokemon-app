@@ -30,8 +30,24 @@ class HomeTableViewController: UITableViewController {
         super.viewDidLoad()
         
         self.registerCell()
+        self.setupTableviewHeader()
         tableView.separatorStyle = .none
         tableView.rowHeight = 145
+        self.title = ""
+    }
+    
+    func setupTableviewHeader(){
+        let header = HomeHeaderView(title: "Pokédex", subtitle: "Search for Pokémon by name or using the National Pokédex number.", searchPlaceholder: "What Pokémon are you looking for?")
+        header.delegate = self
+        header.translatesAutoresizingMaskIntoConstraints = false
+        
+        self.tableView.tableHeaderView = header
+        header.centerXAnchor.constraint(equalTo: self.tableView.centerXAnchor).isActive = true
+        header.widthAnchor.constraint(equalTo: self.tableView.widthAnchor).isActive = true
+        header.topAnchor.constraint(equalTo: self.tableView.topAnchor).isActive = true
+        
+        self.tableView.tableHeaderView?.layoutIfNeeded()
+        self.tableView.tableHeaderView = self.tableView.tableHeaderView
     }
     
     func registerCell(){
@@ -58,11 +74,18 @@ class HomeTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        if indexPath.row + 1 == self.presenter?.pokemons.count {
+        if indexPath.row + 1 == self.presenter?.pokemons.count && self.presenter!.pokemons.count > 1 {
             self.presenter?.fetchPokemons()
         }
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! PokemonTableViewCell
+        
+        if let pokemon = cell.pokemon {
+            self.presenter?.showDetail(for: pokemon)
+        }
+    }
 }
 
 extension HomeTableViewController: HomeViewDelegate {
@@ -71,6 +94,15 @@ extension HomeTableViewController: HomeViewDelegate {
     }
     
     func showError(error: String) {
+        let dialog = UIAlertController(title: "Error", message: error, preferredStyle: .alert)
+        dialog.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        self.present(dialog, animated: true, completion: nil)
+    }
+}
+
+extension HomeTableViewController : HomeHeaderViewDelegate {
+    func search(query: String?) {
         
+        self.presenter?.searchPokemon(query: query)
     }
 }

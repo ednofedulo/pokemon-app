@@ -9,4 +9,17 @@ import Foundation
 
 class DetailPresenter {
     
+    weak var delegate:DetailViewDelegate? {
+        didSet {
+            self.delegate?.setupView(pokemon: self.pokemon!)
+        }
+    }
+    
+    let pokemon:PokemonModel?
+    
+    init(pokemon:PokemonModel) {
+        self.pokemon = pokemon
+        
+    }
+    
 }

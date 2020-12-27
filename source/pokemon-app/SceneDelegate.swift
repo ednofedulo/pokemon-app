@@ -10,6 +10,7 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     
     var window: UIWindow?
+    var appCoordinator:CoordinatorProtocol?
     
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -17,13 +18,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
         
-        let homePresenter = HomePresenter(service: HomeService())
-        let homeViewController = HomeTableViewController(presenter: homePresenter)
-        homePresenter.delegate = homeViewController
-        let navigationController = UINavigationController(rootViewController: homeViewController)
-               
-        window?.rootViewController = navigationController
+//        let homePresenter = HomePresenter(service: HomeService())
+//        let homeViewController = HomeTableViewController(presenter: homePresenter)
+//        homePresenter.delegate = homeViewController
+//        let navigationController = UINavigationController(rootViewController: homeViewController)
         window?.makeKeyAndVisible()
+        
+        self.appCoordinator = AppCoordinator(window: window!)
+        self.appCoordinator?.start()
+//        window?.rootViewController = navigationController
+        
     }
     
     func sceneDidDisconnect(_ scene: UIScene) {
