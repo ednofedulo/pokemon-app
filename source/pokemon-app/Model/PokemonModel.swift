@@ -45,12 +45,20 @@ struct AbilityModel:Codable {
     let is_hidden:Bool?
     let slot:Int?
     let ability:NamedProperty?
+    
+    var description:String {
+        return "\(ability?.name ?? "") \((is_hidden ?? false) ? "(hidden ability)" : "")"
+    }
 }
 
 struct StatModel:Codable {
     let base_stat:Int?
     let effort:Int?
     let stat:NamedProperty?
+    
+    var name:String {
+        return stat?.name ?? ""
+    }
 }
 
 struct TypeModel:Codable {

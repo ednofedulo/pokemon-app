@@ -60,10 +60,11 @@
                                     <constraint firstAttribute="height" constant="130" id="sVT-fM-Nmz"/>
                                 </constraints>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillProportionally" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UAv-if-R9G" userLabel="TypesStackView">
-                                <rect key="frame" x="15" y="62.5" width="150" height="20"/>
+                            <stackView opaque="NO" contentMode="scaleAspectFill" ambiguous="YES" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UAv-if-R9G" userLabel="TypesStackView">
+                                <rect key="frame" x="15" y="62.5" width="100" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="C7a-8l-Ajt"/>
+                                    <constraint firstAttribute="height" constant="25" id="C7a-8l-Ajt"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="10" id="jEF-vN-e2d"/>
                                 </constraints>
                             </stackView>
                         </subviews>

@@ -44,7 +44,7 @@ class DetailHeaderView: UIView {
         stackView.axis = .horizontal
         stackView.spacing = 5
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.heightAnchor.constraint(equalToConstant: 20).isActive = true
+        stackView.heightAnchor.constraint(equalToConstant: 25).isActive = true
         return stackView
     }()
     
@@ -139,14 +139,15 @@ class DetailHeaderView: UIView {
             avatarImageView.kf.setImage(with: url)
         }
         
-        self.nameLabel.text = self.pokemon?.name
+        self.nameLabel.text = self.pokemon?.name?.capitalized
         self.numberLabel.text = "#\(String(format: "%04d", self.pokemon?.id ?? 0))"
         
         if let types = self.pokemon?.types, types.count > 0 {
             for type in types {
-                let badge = UIImageView(image: UIImage(named: "\(type.type!.name!)-badge"))
+                let image = UIImage(named: "\(type.type!.name!)-badge")!
+                let badge = UIImageView(image: image)
                 badge.contentMode = .scaleAspectFit
-                badge.widthAnchor.constraint(equalToConstant: 50).isActive = true
+                badge.widthAnchor.constraint(equalToConstant: 25 * (image.size.width / image.size.height)).isActive = true
                 self.typesStackView.addArrangedSubview(badge)
             }
         }

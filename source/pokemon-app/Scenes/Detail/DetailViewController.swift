@@ -76,7 +76,13 @@ class DetailViewController: UIViewController {
     
     var detailContainerViewTopConstraint:NSLayoutConstraint?
     
-    var label = UILabel()
+    lazy var statsView:StatsView = {
+        let statsView = StatsView(stats: (self.presenter?.pokemon?.stats)!, abilities: (self.presenter?.pokemon?.abilities)!, color: (self.presenter?.pokemon?.mainType()?.color())!)
+        
+        statsView.translatesAutoresizingMaskIntoConstraints = false
+        
+        return statsView
+    }()
     
     var presenter:DetailPresenter?
     
@@ -100,6 +106,8 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        navigationController?.navigationBar.isHidden = false
+        
         navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         navigationController?.navigationBar.isTranslucent = true
@@ -115,9 +123,7 @@ class DetailViewController: UIViewController {
         self.view.addSubview(detailContainerView)
         detailContainerView.addSubview(scrollView)
         scrollView.addSubview(scrollViewContainerView)
-        scrollViewContainerView.addSubview(label)
-        
-        label.translatesAutoresizingMaskIntoConstraints = false
+        scrollViewContainerView.addSubview(statsView)
     }
     
     private func setupConstraints(){
@@ -159,10 +165,10 @@ class DetailViewController: UIViewController {
         ])
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: scrollViewContainerView.topAnchor),
-            label.leadingAnchor.constraint(equalTo: scrollViewContainerView.leadingAnchor, constant: 10),
-            label.trailingAnchor.constraint(equalTo: scrollViewContainerView.trailingAnchor, constant: -10),
-            scrollViewContainerView.bottomAnchor.constraint(equalTo: label.bottomAnchor)
+            statsView.topAnchor.constraint(equalTo: scrollViewContainerView.topAnchor),
+            statsView.leadingAnchor.constraint(equalTo: scrollViewContainerView.leadingAnchor, constant: 30),
+            statsView.trailingAnchor.constraint(equalTo: scrollViewContainerView.trailingAnchor, constant: -30),
+            scrollViewContainerView.bottomAnchor.constraint(equalTo: statsView.bottomAnchor)
         ])
         
         NSLayoutConstraint.activate([
@@ -172,9 +178,7 @@ class DetailViewController: UIViewController {
     }
     
     private func setupView(){
-        label.numberOfLines = 0
-        
-        label.text = "1312312312312  j1 ifo1 of1o 1n3oin13f on31fono3f no13f no 13fonf13 onfo  o1 of 3nf31 13fno fn13 fno1nfo31nifno f f ofnof3n1ofn13of31onf  f3f31f13  1 f 13 31f313f f 1f 1 31f 13f13113f13f13f13f13   1 133131f13f 1 13 13 1 f13 13f 31ff 1f1f1312312312312  j1 ifo1 of1o 1n3oin13f on31fono3f no13f no 13fonf13 onfo  o1 of 3nf31 13fno fn13 fno1nfo31nifno f f ofnof3n1ofn13of31onf  f3f31f13  1 f 13 31f313f f 1f 1 31f 13f13113f13f13f13f13   1 133131f13f 1 13 13 1 f13 13f 31ff 1f1f1312312312312  j1 ifo1 of1o 1n3oin13f on31fono3f no13f no 13fonf13 onfo  o1 of 3nf31 13fno fn13 fno1nfo31nifno f f ofnof3n1ofn13of31onf  f3f31f13  1 f 13 31f313f f 1f 1 31f 13f13113f13f13f13f13   1 133131f13f 1 13 13 1 f13 13f 31ff1312312312312  j1 ifo1 of1o 1n3oin13f on31fono3f no13f no 13fonf13 onfo  o1 of 3nf31 13fno fn13 fno1nfo31nifno f f ofnof3n1ofn13of31onf  f3f31f13  1 f 13 31f313f f 1f 1 31f 13f13113f13f13f13f13   1 133131f13f 1 13 13 1 f13 13f 31ff 1f1f1312312312312  j1 ifo1 of1o 1n3oin13f on31fono3f no13f no 13fonf13 onfo  o1 of 3nf31 13fno fn13 fno1nfo31nifno f f ofnof3n1ofn13of31onf  f3f31f13  1 f 13 31f313f f 1f 1 31f 13f13113f13f13f13f13   1 133131f13f 1 13 13 1 f13 13f 31ff 1f1f1312312312312  j1 ifo1 of1o 1n3oin13f on31fono3f no13f no 13fonf13 onfo  o1 of 3nf31 13fno fn13 fno1nfo31nifno f f ofnof3n1ofn13of31onf  f3f31f13  1 f 13 31f313f f 1f 1 31f 13f13113f13f13f13f13   1 133131f13f 1 13 13 1 f13 13f 31ff1312312312312  j1 ifo1 of1o 1n3oin13f on31fono3f no13f no 13fonf13 onfo  o1 of 3nf31 13fno fn13 fno1nfo31nifno f f ofnof3n1ofn13of31onf  f3f31f13  1 f 13 31f313f f 1f 1 31f 13f13113f13f13f13f13   1 133131f13f 1 13 13 1 f13 13f 31ff 1f1f1312312312312  j1 ifo1 of1o 1n3oin13f on31fono3f no13f no 13fonf13 onfo  o1 of 3nf31 13fno fn13 fno1nfo31nifno f f ofnof3n1ofn13of31onf  f3f31f13  1 f 13 31f313f f 1f 1 31f 13f13113f13f13f13f13   1 133131f13f 1 13 13 1 f13 13f 31ff 1f1f1312312312312  j1 ifo1 of1o 1n3oin13f on31fono3f no13f no 13fonf13 onfo  o1 of 3nf31 13fno fn13 fno1nfo31nifno f f ofnof3n1ofn13of31onf  f3f31f13  1 f 13 31f313f f 1f 1 31f 13f13113f13f13f13f13   1 133131f13f 1 13 13 1 f13 13f 31ff"
+
     }
     
     func updateTabBar(sender:UIButton){

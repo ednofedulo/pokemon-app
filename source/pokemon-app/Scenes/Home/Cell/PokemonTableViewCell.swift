@@ -25,7 +25,7 @@ class PokemonTableViewCell: UITableViewCell {
     func setup(pokemon: PokemonModel){
         self.pokemon = pokemon
         
-        nameLabel.text = pokemon.name
+        nameLabel.text = pokemon.name?.capitalized
         orderLabel.text = "#\(String(format: "%04d", pokemon.id ?? 0))"
         
         if let sprites = pokemon.sprites, let other = sprites.other, let artwork = other.official_artwork, let url = URL(string: artwork.front_default ?? "") {
@@ -39,9 +39,10 @@ class PokemonTableViewCell: UITableViewCell {
             let mainType = pokemon.mainType()
             self.coloredBackgroundVIew.backgroundColor = mainType?.backgroundColor()
             for type in types {
-                let badge = UIImageView(image: UIImage(named: "\(type.type!.name!)-badge"))
+                let image = UIImage(named: "\(type.type!.name!)-badge")!
+                let badge = UIImageView(image: image)
                 badge.contentMode = .scaleAspectFit
-                badge.widthAnchor.constraint(equalToConstant: 50).isActive = true
+                badge.widthAnchor.constraint(equalToConstant: 25 * (image.size.width / image.size.height)).isActive = true
                 self.typesStackView.addArrangedSubview(badge)
             }
         }

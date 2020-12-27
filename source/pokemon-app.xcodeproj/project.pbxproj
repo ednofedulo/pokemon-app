@@ -30,6 +30,7 @@
 		A5F9242A2598ACDA00E4751C /* DetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F924292598ACDA00E4751C /* DetailHeaderView.swift */; };
 		A5F9242F2598CE5100E4751C /* HomeHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F9242E2598CE5100E4751C /* HomeHeaderView.swift */; };
 		A5F924342598D53200E4751C /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F924332598D53200E4751C /* CustomTextField.swift */; };
+		A5F924492599267F00E4751C /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A5F924482599267F00E4751C /* StatsView.swift */; };
 		CFE023D831600BACD72903AF /* Pods_pokemon_appTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D7AECBE992AF447CF08017E1 /* Pods_pokemon_appTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +85,7 @@
 		A5F924292598ACDA00E4751C /* DetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderView.swift; sourceTree = "<group>"; };
 		A5F9242E2598CE5100E4751C /* HomeHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderView.swift; sourceTree = "<group>"; };
 		A5F924332598D53200E4751C /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		A5F924482599267F00E4751C /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		D38C719F4C16049D81F62670 /* Pods-pokemon-app-pokemon-appUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemon-app-pokemon-appUITests.release.xcconfig"; path = "Target Support Files/Pods-pokemon-app-pokemon-appUITests/Pods-pokemon-app-pokemon-appUITests.release.xcconfig"; sourceTree = "<group>"; };
 		D7AECBE992AF447CF08017E1 /* Pods_pokemon_appTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_pokemon_appTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4EF7DFF63370C87ED92580C /* Pods-pokemon-appTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-pokemon-appTests.release.xcconfig"; path = "Target Support Files/Pods-pokemon-appTests/Pods-pokemon-appTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -148,6 +150,7 @@
 				A51C179325975F21007CF359 /* DetailViewController.swift */,
 				A51C179A25975F2F007CF359 /* DetailPresenter.swift */,
 				A5F924292598ACDA00E4751C /* DetailHeaderView.swift */,
+				A5F924482599267F00E4751C /* StatsView.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -529,6 +532,7 @@
 				A58E7560259745C2009A2D76 /* SceneDelegate.swift in Sources */,
 				A51C178F25975EF8007CF359 /* HomePresenter.swift in Sources */,
 				A51C179B25975F2F007CF359 /* DetailPresenter.swift in Sources */,
+				A5F924492599267F00E4751C /* StatsView.swift in Sources */,
 				A51C17B225976B53007CF359 /* PokemonModel.swift in Sources */,
 				A51C17D82597CB00007CF359 /* PokemonType.swift in Sources */,
 				A5F9242A2598ACDA00E4751C /* DetailHeaderView.swift in Sources */,

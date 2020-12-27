@@ -36,6 +36,11 @@ class HomeTableViewController: UITableViewController {
         self.title = ""
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     func setupTableviewHeader(){
         let header = HomeHeaderView(title: "Pokédex", subtitle: "Search for Pokémon by name or using the National Pokédex number.", searchPlaceholder: "What Pokémon are you looking for?")
         header.delegate = self
