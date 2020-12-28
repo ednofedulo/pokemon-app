@@ -178,7 +178,7 @@ class DetailViewController: UIViewController {
     }
     
     private func setupView(){
-
+        
     }
     
     func updateTabBar(sender:UIButton){

@@ -17,7 +17,7 @@ class HomePresenter {
     
     let screenTitle = "Pokédex"
     
-    init(service:HomeServiceProtocol, coordinator:AppCoordinator) {
+    init(service:HomeServiceProtocol, coordinator:AppCoordinator?) {
         self.service = service
         self.coordinator = coordinator
     }

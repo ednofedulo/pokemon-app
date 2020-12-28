@@ -19,7 +19,5 @@ class DetailPresenter {
     
     init(pokemon:PokemonModel) {
         self.pokemon = pokemon
-        
     }
-    
 }
